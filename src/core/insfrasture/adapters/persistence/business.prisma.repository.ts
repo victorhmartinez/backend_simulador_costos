@@ -11,7 +11,7 @@ export class NegocioPrismaRepository implements NegocioRepositoryPort {
   constructor(
     private readonly prisma: PrismaService,
     private readonly mapper: NegocioMapper,
-  ) {}
+  ) { }
 
   async create(negocio: Negocio): Promise<Negocio> {
     const negocioCreado = await this.prisma.negocios.create({
@@ -45,7 +45,7 @@ export class NegocioPrismaRepository implements NegocioRepositoryPort {
     return todosLosNegocios.map((n) => this.mapper.toDomain(n));
   }
 
-async update(negocioId: number, negocioData: Partial<Negocio>): Promise<Negocio | null> {
+  async update(negocioId: number, negocioData: Partial<Negocio>): Promise<Negocio | null> {
     try {
       const negocioActualizado = await this.prisma.negocios.update({
         where: { negocio_id: negocioId },
@@ -59,7 +59,7 @@ async update(negocioId: number, negocioData: Partial<Negocio>): Promise<Negocio 
       return this.mapper.toDomain(negocioActualizado);
     } catch (error) {
       // Prisma lanza un error si el registro a actualizar no se encuentra
-      if (error.code === 'P2025') { 
+      if (error.code === 'P2025') {
         return null;
       }
       throw error;
