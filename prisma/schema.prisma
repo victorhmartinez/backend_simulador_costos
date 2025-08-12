@@ -56,6 +56,9 @@ model NegocioProgresoPaso {
   Estados          Estados   @relation(fields: [id_estado], references: [id_estado], onDelete: NoAction, onUpdate: NoAction, map: "fk_progreso_estados")
   Modulos          Modulos   @relation(fields: [modulo_id], references: [id_modulo], onDelete: NoAction, onUpdate: NoAction, map: "fk_progreso_modulos")
   Negocios         Negocios  @relation(fields: [negocio_id], references: [negocio_id], onDelete: NoAction, onUpdate: NoAction, map: "fk_progreso_negocios")
+  @@unique([negocio_id, modulo_id], map: "unique_progreso_negocio_modulo")
+  @@map("NegocioProgresoPaso")
+
 }
 
 model Negocios {
