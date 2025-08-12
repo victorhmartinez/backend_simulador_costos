@@ -10,10 +10,10 @@ export class ModulosMapper {
     return new Modulos(
       prismaModulo.nombre_modulo,
       prismaModulo.id_aprendizaje,
-      prismaModulo.concepto,
-      prismaModulo.orden_modulo,
-      prismaModulo.recurso_interactivo,
-      prismaModulo.titulo_conteido,
+      prismaModulo.concepto === null ? undefined : prismaModulo.concepto,
+      prismaModulo.orden_modulo  === null ? undefined: prismaModulo.orden_modulo,
+      prismaModulo.recurso_interactivo === null ? undefined: prismaModulo.recurso_interactivo,
+      prismaModulo.titulo_conteido === null ? undefined: prismaModulo.titulo_conteido,
     );
   }
 

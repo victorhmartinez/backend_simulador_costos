@@ -9,7 +9,7 @@ export class AprendizajeMapper {
   toDomain(prismaAprendizaje: AprendizajePrismaModel): Aprendizaje {
     return new Aprendizaje(
       prismaAprendizaje.nombre,
-      prismaAprendizaje.total_niveles);
+      prismaAprendizaje.total_niveles ?? 0);
   }
 
   // Convierte desde un DTO de creación al modelo de Dominio

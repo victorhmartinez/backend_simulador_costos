@@ -14,7 +14,7 @@ export class AprendizajePrismaRepository implements AprendizajeRepositoryPort {
   async create(aprendizaje: Aprendizaje): Promise<Aprendizaje> {
     const aprendizajeCreado = await this.prisma.aprendizaje.create({
       data: {
-        nombre: aprendizaje.nombre,
+        nombre: aprendizaje.nombre ?? '',
         total_niveles: aprendizaje.totalNiveles,
       },
     });

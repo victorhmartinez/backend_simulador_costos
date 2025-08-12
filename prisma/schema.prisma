@@ -39,7 +39,7 @@ model Modulos {
   orden_modulo          Int?
   nombre_modulo         String                  @db.VarChar(150)
   titulo_conteido       String?                 @db.VarChar(255)
-  concepto              String?
+  concepto              String
   recurso_interactivo   String?                 @db.VarChar(255)
   Aprendizaje           Aprendizaje             @relation(fields: [id_aprendizaje], references: [id_aprendizaje], onDelete: NoAction, onUpdate: NoAction, map: "fk_modulos_aprendizaje")
   NegocioProgresoPaso   NegocioProgresoPaso[]

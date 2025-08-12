@@ -15,7 +15,7 @@ export class ModuloPrismaRepository implements ModulosRepositoryPort {
     const moduloCreado = await this.prisma.modulos.create({
       data: {
         nombre_modulo: modulo.nombreModulo,
-        concepto: modulo.concepto,
+        concepto: modulo.concepto ?? '',
         id_aprendizaje: modulo.aprendizajeId,
         orden_modulo: modulo.ordenModulo,
         recurso_interactivo: modulo.recursoInteractivo,
