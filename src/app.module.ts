@@ -6,6 +6,7 @@ import { AprendizajeModule } from './core/insfrasture/modules/learning.module';
 import { ModulosModule } from './core/insfrasture/modules/module.module';
 import { BusinessSizeModule } from './core/insfrasture/modules/business_size.module';
 import { BusinessProgressStepModule } from './core/insfrasture/modules/business_progress_step.module';
+import { EstadoModule } from './core/insfrasture/modules/estado.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { BusinessProgressStepModule } from './core/insfrasture/modules/business_
     AprendizajeModule,
     BusinessProgressStepModule,
 
-    ModulosModule
+    ModulosModule,
+    EstadoModule
   ],
   controllers: [AppController],
   providers: [AppService],
